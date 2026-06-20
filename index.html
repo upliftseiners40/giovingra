@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artist In Rome | GiovIngra — Giovanna Ingrascì Pittrice</title>
+<meta name="description" content="Discover the painting collections by GiovIngra Giovanna Ingrascì, Rome based Sicilian artist">
+<meta property="og:title" content="Artist In Rome | GiovIngra Giovanna Ingrascì Pittrice">
+<meta property="og:description" content="Discover the painting collections by GiovIngra Giovanna Ingrascì, Rome based Sicilian artist">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.giovingra.com">
+<meta property="og:image" content="images/83c18c6703744e218dd965d51848199d.jpg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <span class="brand">GiovIngra</span>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <ul id="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li class="has-drop"><a href="index.html#collezioni">Collezioni</a>
+        <ul class="dropdown">
+          <li><a href="emigrazione.html">Emigrazione</a></li>
+          <li><a href="figure.html">Figure</a></li>
+          <li><a href="mito.html">Mito</a></li>
+          <li><a href="paesaggi.html">Paesaggi</a></li>
+          <li><a href="aetna.html">Aetna</a></li>
+          <li><a href="folclore.html">Folclore</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#contatti">Contatti</a></li>
+      <li><a href="pitturalab.html">PitturaLab</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero-banner" style="background-image:url('images/83c18c6703744e218dd965d51848199d.jpg')">
+  <div class="inner">
+    <h1>Giovanna Ingrascì</h1>
+    <p class="tagline">Pittrice &middot; Rome based Sicilian artist</p>
+  </div>
+</section>
+
+<!-- COLLEZIONI — each thumbnail links to its collection; name shows on hover -->
+<section id="collezioni" class="section">
+  <h2>Collezioni</h2>
+  <p class="sub">Un percorso artistico unico &middot; Painting collections</p>
+  <div class="divider"></div>
+  <div class="gallery" style="margin-top:32px">
+
+    <a class="collink" href="figure.html">
+      <img src="images/4eb9692d2bee469a90c277a0fabdf2e4.jpg" alt="Collezione Figure" loading="lazy">
+      <span class="label">Figure</span>
+    </a>
+
+    <a class="collink" href="folclore.html">
+      <img src="images/0bdeda0271964d248c1760bb34fb7f2d.jpg" alt="Collezione Folclore" loading="lazy">
+      <span class="label">Folclore</span>
+    </a>
+
+    <a class="collink" href="aetna.html">
+      <img src="images/0c5dcab2f1554b5184cb44decdf5c865.jpg" alt="Collezione Aetna" loading="lazy">
+      <span class="label">Aetna</span>
+    </a>
+
+    <a class="collink" href="mito.html">
+      <img src="images/c11b7d2f71674c95960340eeabd93ee1.jpg" alt="Collezione Mito" loading="lazy">
+      <span class="label">Mito</span>
+    </a>
+
+    <a class="collink" href="paesaggi.html">
+      <img src="images/17d9472fa26e437b8615bff3c9b8caa6.jpg" alt="Collezione Paesaggi" loading="lazy">
+      <span class="label">Paesaggi</span>
+    </a>
+
+    <a class="collink" href="emigrazione.html">
+      <img src="images/91cae16fbb894a15b000e4ed913a58af.jpg" alt="Collezione Emigrazione" loading="lazy">
+      <span class="label">Emigrazione</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti" class="section contact">
+  <h2>Contatti</h2>
+  <p class="sub">Get in touch</p>
+  <div class="divider"></div>
+  <img class="contact-img" src="images/9e46b8d1159d46aba63ef789934dd53e.jpg" alt="Bozzetto di Giovanna Ingrascì" loading="lazy">
+  <div class="card">
+    <p class="name">GiovIngra — Giovanna Ingrascì</p>
+    <p><a href="mailto:giovingra@yahoo.it">giovingra@yahoo.it</a></p>
+    <p>Via Monterone 18, 00186 Roma (RM)</p>
+  </div>
+  <div>
+    <a class="btn" href="mailto:giovingra@yahoo.it">Scrivimi · Email me</a>
+  </div>
+  <p class="place">PitturaLab &middot; Atelier &amp; Galleria d'arte</p>
+  <div class="map-wrap">
+    <iframe title="PitturaLab — Via Monterone 18, Roma" loading="lazy"
+      src="https://www.google.com/maps?q=PitturaLab,+Via+Monterone+18,+00186+Roma&output=embed"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <p><a class="btn" href="https://maps.app.goo.gl/y9eD7Dsu4pyzHqG5A" target="_blank" rel="noopener">Apri PitturaLab su Google Maps</a></p>
+</section>
+
+<footer class="site-footer">
+  <p>&copy;2022 Giovanna Ingrascì &middot; Roma</p>
+</footer>
+
+<script>
+  var t=document.querySelector('.nav-toggle'),m=document.getElementById('menu');
+  if(t){t.addEventListener('click',function(){m.classList.toggle('open');});}
+</script>
+</body>
+</html>

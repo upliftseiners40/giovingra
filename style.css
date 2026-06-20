@@ -1,0 +1,238 @@
+/* GiovIngra — Giovanna Ingrascì — portfolio
+   Clean static rebuild. Single stylesheet, no dependencies. */
+
+@font-face{
+  font-family:"Rocko";
+  src:url("fonts/Rocko-Regular.ttf") format("truetype");
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"Rocko";
+  src:url("fonts/Rocko-Bold.ttf") format("truetype");
+  font-weight:700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"Rocko Ultra";
+  src:url("fonts/Rocko-Ultra.ttf") format("truetype");
+  font-weight:400;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:"Rocko Ultra";
+  src:url("fonts/Rocko-UltraBold.ttf") format("truetype");
+  font-weight:700;font-style:normal;font-display:swap;
+}
+
+:root{
+  --ink:#ffffff;                  /* main text: white */
+  --muted:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.22);
+  --bg:#102B43;                   /* site background: exact blue from original site */
+  --bg-soft:rgba(255,255,255,.06);
+  --accent:#f0c873;               /* warm gold accent on blue */
+  --max:1120px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Rocko","Georgia","Times New Roman",serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---- Header / nav ---- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(16,43,67,.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:var(--max);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;gap:16px;
+}
+.brand{
+  font-family:"Rocko","Georgia",serif;
+  font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:400;
+}
+.lab h1,.section h2{font-family:"Rocko Ultra","Rocko",serif}
+.nav ul{
+  list-style:none;display:flex;gap:26px;margin:0;padding:0;flex-wrap:wrap;
+}
+.nav a{
+  color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+  font-size:.82rem;
+}
+.nav a:hover,.nav a.active{color:var(--ink);text-decoration:none}
+.nav-toggle{display:none}
+
+/* dropdown for Collezioni */
+.has-drop{position:relative}
+.has-drop > a::after{content:" \25BE";font-size:.7em;opacity:.7}
+.dropdown{
+  list-style:none;margin:0;padding:8px 0;display:none;
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  background:var(--bg);border:1px solid var(--line);min-width:170px;
+  flex-direction:column;gap:0;box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.has-drop:hover .dropdown,.has-drop:focus-within .dropdown{display:flex}
+.dropdown li{padding:0}
+.dropdown a{display:block;padding:8px 18px;white-space:nowrap}
+.dropdown a:hover{background:rgba(255,255,255,.14)}
+
+/* ---- Hero ---- */
+.hero{
+  max-width:var(--max);margin:0 auto;padding:64px 24px 40px;text-align:center;
+}
+.hero h1{
+  font-family:"Rocko","Georgia",serif;
+  font-size:clamp(2rem,5vw,3.4rem);margin:0 0 .3em;
+  letter-spacing:.1em;font-weight:400;text-transform:uppercase;
+}
+.hero .tagline{color:var(--muted);font-style:italic;font-size:1.15rem;margin:0}
+.coltitle{
+  font-family:"Rocko Ultra","Rocko",serif;font-weight:400;
+  font-size:clamp(1.9rem,4.5vw,3rem);letter-spacing:.04em;margin:0 0 .25em;
+}
+
+/* ---- Hero banner with background painting ---- */
+.hero-banner{
+  position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;background-size:cover;background-position:center;
+}
+.hero-banner::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(rgba(16,43,67,.30),rgba(16,43,67,.60));}
+.hero-banner .inner{position:relative;z-index:1;padding:32px 24px}
+.hero-banner h1{
+  font-family:"Rocko","Georgia",serif;font-weight:400;text-transform:uppercase;
+  letter-spacing:.12em;color:#fff;margin:0 0 .25em;
+  font-size:clamp(2rem,5.5vw,3.6rem);text-shadow:0 2px 18px rgba(0,0,0,.45);
+}
+.hero-banner .tagline{color:rgba(255,255,255,.9);font-style:italic;font-size:1.15rem;margin:0;
+  text-shadow:0 1px 10px rgba(0,0,0,.45);}
+
+/* ---- Contact image + map ---- */
+.contact-img{max-width:300px;margin:0 auto 26px;border:1px solid var(--line);display:block}
+.place{font-size:1.05rem;letter-spacing:.04em;margin:30px 0 6px}
+.map-wrap{max-width:760px;margin:14px auto 0;border:1px solid var(--line)}
+.map-wrap iframe{display:block;width:100%;height:360px;border:0}
+
+/* ---- Lightbox (fullscreen carousel) ---- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,20,33,.96);
+  display:none;align-items:center;justify-content:center;}
+.lb.open{display:flex}
+.lb img{max-width:88vw;max-height:78vh;object-fit:contain;box-shadow:0 10px 50px rgba(0,0,0,.6)}
+.lb .lb-cap{position:absolute;bottom:26px;left:0;right:0;text-align:center;color:#fff;padding:0 20px}
+.lb .lb-cap .t{font-style:italic;font-size:1.05rem;display:block}
+.lb .lb-cap .d{color:rgba(255,255,255,.75);font-size:.85rem;display:block;margin-top:3px}
+.lb .lb-count{position:absolute;top:22px;left:0;right:0;text-align:center;color:rgba(255,255,255,.7);font-size:.8rem;letter-spacing:.1em}
+.lb button{position:absolute;background:none;border:none;color:#fff;cursor:pointer;
+  font-size:2.6rem;line-height:1;padding:14px;opacity:.8;transition:opacity .2s}
+.lb button:hover{opacity:1}
+.lb .lb-prev{left:2vw;top:50%;transform:translateY(-50%)}
+.lb .lb-next{right:2vw;top:50%;transform:translateY(-50%)}
+.lb .lb-close{top:14px;right:18px;font-size:2rem}
+.gallery figure{cursor:pointer}
+@media(max-width:620px){
+  .lb button{font-size:2rem}
+  .lb img{max-width:94vw;max-height:70vh}
+}
+
+/* ---- Section headings ---- */
+.section{max-width:var(--max);margin:0 auto;padding:48px 24px;scroll-margin-top:80px}
+.section h2{
+  font-size:1.8rem;font-weight:normal;letter-spacing:.04em;
+  text-align:center;margin:0 0 8px;
+}
+.section .sub{text-align:center;color:var(--muted);margin:0 0 36px;font-style:italic}
+.divider{width:60px;height:1px;background:var(--accent);margin:14px auto 0;opacity:.6}
+
+/* ---- Gallery ---- */
+.gallery{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+}
+.gallery figure{margin:0;overflow:hidden;background:var(--bg-soft);border:1px solid var(--line);display:flex;flex-direction:column}
+.gallery img{
+  width:100%;height:300px;object-fit:cover;display:block;
+  transition:transform .5s ease;
+}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery figcaption{
+  padding:12px 14px;text-align:center;
+}
+.gallery figcaption .t{display:block;font-style:italic;font-size:1.02rem}
+.gallery figcaption .d{display:block;color:var(--muted);font-size:.82rem;margin-top:3px;letter-spacing:.03em}
+.gallery .wide{grid-column:span 2}
+@media(max-width:620px){.gallery .wide{grid-column:span 1}}
+
+/* Linked collection thumbnails with hover name overlay */
+.collink{position:relative;display:block;overflow:hidden;border:1px solid var(--line);background:#000}
+.collink img{width:100%;height:320px;object-fit:cover;display:block;transition:transform .6s ease,opacity .4s ease}
+.collink .label{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  color:#fff;text-transform:uppercase;letter-spacing:.18em;font-size:1.15rem;
+  background:rgba(28,26,23,.0);opacity:0;transition:opacity .4s ease,background .4s ease;
+  text-align:center;padding:12px;
+}
+.collink:hover img{transform:scale(1.06);opacity:.55}
+.collink:hover .label{opacity:1;background:rgba(28,26,23,.35)}
+.collink:hover{text-decoration:none}
+.collink.wide{grid-column:span 2}
+@media(max-width:620px){.collink.wide{grid-column:span 1}}
+
+/* ---- Contact ---- */
+.contact{text-align:center}
+.contact .card{
+  display:inline-block;text-align:left;border:1px solid var(--line);
+  background:var(--bg-soft);padding:28px 36px;margin-top:8px;
+}
+.contact .card p{margin:.35em 0}
+.contact .name{font-size:1.2rem;font-weight:bold}
+.btn{
+  display:inline-block;margin-top:18px;padding:12px 26px;
+  border:1px solid var(--accent);color:var(--accent);
+  text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;
+}
+.btn:hover{background:var(--accent);color:#fff;text-decoration:none}
+
+/* ---- PitturaLab block ---- */
+.lab{text-align:center;max-width:760px;margin:0 auto;padding:72px 24px}
+.lab h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:normal;letter-spacing:.05em;margin:0 0 .4em}
+.lab p.lead{font-size:1.2rem;color:var(--muted);margin:0 0 .2em}
+.lab p.lead.en{font-style:italic}
+
+/* ---- Footer ---- */
+.site-footer{
+  border-top:1px solid var(--line);margin-top:40px;
+  text-align:center;color:var(--muted);font-size:.8rem;padding:28px 24px;
+}
+
+/* ---- Mobile nav ---- */
+@media(max-width:680px){
+  .nav-toggle{
+    display:block;background:none;border:none;font-size:1.5rem;
+    color:var(--ink);cursor:pointer;line-height:1;
+  }
+  .nav ul{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;background:var(--bg);
+    border-bottom:1px solid var(--line);padding:8px 24px;
+  }
+  .nav ul.open{display:flex}
+  .nav li{padding:8px 0;border-top:1px solid var(--line)}
+  .nav{position:relative}
+  /* show collection links inline on mobile */
+  .dropdown{display:flex !important;position:static;transform:none;border:none;
+    box-shadow:none;background:transparent;padding:4px 0 4px 16px;min-width:0}
+  .dropdown li{border-top:none;padding:4px 0}
+  .has-drop > a::after{content:""}
+}
