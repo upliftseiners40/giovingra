@@ -64,7 +64,7 @@ a:hover{text-decoration:underline}
   color:var(--ink);font-weight:400;
 }
 .lab h1,.section h2{font-family:"Rocko Ultra","Rocko",serif}
-.nav ul{
+.nav > ul{
   list-style:none;display:flex;gap:26px;margin:0;padding:0;flex-wrap:wrap;
 }
 .nav a{
@@ -222,12 +222,12 @@ a:hover{text-decoration:underline}
     display:block;background:none;border:none;font-size:1.5rem;
     color:var(--ink);cursor:pointer;line-height:1;
   }
-  .nav ul{
+  .nav > ul{
     display:none;position:absolute;top:100%;left:0;right:0;
     flex-direction:column;gap:0;background:var(--bg);
     border-bottom:1px solid var(--line);padding:8px 24px;
   }
-  .nav ul.open{display:flex}
+  .nav > ul.open{display:flex}
   .nav li{padding:8px 0;border-top:1px solid var(--line)}
   .nav{position:relative}
   /* show collection links inline on mobile */
@@ -235,4 +235,8 @@ a:hover{text-decoration:underline}
     box-shadow:none;background:transparent;padding:4px 0 4px 16px;min-width:0}
   .dropdown li{border-top:none;padding:4px 0}
   .has-drop > a::after{content:""}
+
+  /* mobile: reveal a collection name while its thumbnail is centred on screen */
+  .collink.reveal img{transform:scale(1.05);opacity:.55}
+  .collink.reveal .label{opacity:1;background:rgba(28,26,23,.4)}
 }
